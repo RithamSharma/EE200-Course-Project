@@ -33,7 +33,7 @@ SeeCommand::SeeCommand() = default;
 
 int SeeCommand::run(const std::optional<std::string>& image_path) {
   if (!check_authentication()) {
-    std::cerr << "Vision requires Gemini API authentication. Use 'login' or 'set-key' to configure." << std::endl;
+    std::cerr << "Vision requires API authentication. Set GEMINI_API_KEY or OPENAI_API_KEY environment variable." << std::endl;
     return 1;
   }
 
@@ -109,8 +109,9 @@ void SeeCommand::display_result(const std::string& result) {
 }
 
 bool SeeCommand::check_authentication() {
-  const char* api_key = getenv("GEMINI_API_KEY");
-  return api_key != nullptr;
+  const char* gemini_key = getenv("GEMINI_API_KEY");
+  const char* openai_key = getenv("OPENAI_API_KEY");
+  return gemini_key != nullptr || openai_key != nullptr;
 }
 
 } // namespace novashell::vision
