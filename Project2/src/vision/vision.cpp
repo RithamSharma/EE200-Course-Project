@@ -37,21 +37,41 @@ int SeeCommand::run(const std::optional<std::string>& image_path) {
     return 1;
   }
 
+  ImageData img;
   if (image_path) {
     auto result = load_image(*image_path);
     if (!result.ok()) {
       std::cerr << "Error: " << error_message(result.error()) << std::endl;
       return 1;
     }
-    std::cout << "Image loaded: " << result.value().width << "x" << result.value().height << std::endl;
+    img = result.value();
+    std::cout << "Image loaded: " << img.width << "x" << img.height << std::endl;
   } else {
+    std::cout << "Capturing screen..." << std::endl;
     auto result = capture_screen();
     if (!result.ok()) {
       std::cerr << "Error: " << error_message(result.error()) << std::endl;
       return 1;
     }
-    std::cout << "Screen captured: " << result.value().width << "x" << result.value().height << std::endl;
+    img = result.value();
+    std::cout << "Screen captured: " << img.width << "x" << img.height << std::endl;
   }
+
+  // Select analysis mode
+  AnalysisMode mode = select_mode();
+  std::cout << "Analyzing with " << (mode == AnalysisMode::ScreenUnderstanding ? "Screen Understanding" :
+                                     mode == AnalysisMode::OcrTextExtraction ? "OCR" :
+                                     mode == AnalysisMode::AccessibilityAudit ? "Accessibility Audit" : "Full Analysis") << "..." << std::endl;
+
+  // Send to AI for analysis
+  std::cout << "Sending to OpenAI for analysis..." << std::endl;
+  auto analysis_result = analyze(img, mode);
+  if (!analysis_result.ok()) {
+    std::cerr << "Analysis failed: API error occurred" << std::endl;
+    return 1;
+  }
+
+  std::cout << "\n--- AI Response ---\n" << analysis_result.value() << "\n--- End ---\n";
 
   return 0;
 }

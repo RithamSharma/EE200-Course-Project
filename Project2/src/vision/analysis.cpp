@@ -38,12 +38,12 @@ Result<std::string> AnalysisEngine::analyze(const ImageData& img, AnalysisMode m
   std::string prompt = build_prompt(mode);
   std::string base64_data;
 
-  // Convert image to base64 (simple version for PNG)
+  // Convert raw bytes to base64 (standard base64 encoding)
+  static const char chars[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
   for (size_t i = 0; i < img.data.size(); i += 3) {
     uint8_t b0 = img.data[i];
     uint8_t b1 = (i + 1 < img.data.size()) ? img.data[i + 1] : 0;
     uint8_t b2 = (i + 2 < img.data.size()) ? img.data[i + 2] : 0;
-    static const char chars[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     base64_data += chars[b0 >> 2];
     base64_data += chars[((b0 & 0x03) << 4) | (b1 >> 4)];
     base64_data += (i + 1 < img.data.size()) ? chars[((b1 & 0x0F) << 2) | (b2 >> 6)] : '=';
@@ -51,19 +51,7 @@ Result<std::string> AnalysisEngine::analyze(const ImageData& img, AnalysisMode m
   }
 
   // Create JSON payload for OpenAI vision API
-  std::string json_payload = R"({
-    "model": "gpt-4o",
-    "messages": [
-      {
-        "role": "user",
-        "content": [
-          {"type": "text", "text": ")" + prompt + R"("},
-          {"type": "image_url", "image_url": {"url": "data:image/png;base64,)" + base64_data + R"("}}
-        ]
-      }
-    ],
-    "max_tokens": 4096
-  })";
+  std::string json_payload = "{\"model\":\"gpt-4o\",\"messages\":[{\"role\":\"user\",\"content\":[{\"type\":\"text\",\"text\":\"" + prompt + "\"},{\"type\":\"image_url\",\"image_url\":{\"url\":\"data:image/png;base64," + base64_data + "\"}}]}],\"max_tokens\":4096}";
 
   // Write payload to temp file
   std::ofstream json_file("/tmp/vision_payload.json");
@@ -81,35 +69,40 @@ Result<std::string> AnalysisEngine::analyze(const ImageData& img, AnalysisMode m
     return std::string("Error: Failed to execute curl");
   }
 
-  char buffer[4096];
+  char buffer[8192];
   std::string result;
   while (fgets(buffer, sizeof(buffer), pipe)) {
     result += buffer;
   }
   pclose(pipe);
 
-  // Parse response (simple extraction)
-  if (result.find("\"error\"") != std::string::npos) {
-    size_t msg_start = result.find("\"message\":\"");
-    if (msg_start != std::string::npos) {
-      msg_start += 11;
-      size_t msg_end = result.find("\"", msg_start);
-      return std::string("OpenAI Error: ") + result.substr(msg_start, msg_end - msg_start);
-    }
-    return std::string("OpenAI API error: ") + result;
-  }
-
-  // Extract content from response
+  // Parse response - look for "content" field in choices array
   size_t content_start = result.find("\"content\":\"");
   if (content_start != std::string::npos) {
     content_start += 11;
     size_t content_end = result.find("\"", content_start);
     std::string content = result.substr(content_start, content_end - content_start);
-    // Unescape newlines
-    for (size_t pos = content.find("\\n"); pos != std::string::npos; pos = content.find("\\n")) {
+
+    // Unescape JSON escaped characters
+    size_t pos = 0;
+    while ((pos = content.find("\\n", pos)) != std::string::npos) {
       content.replace(pos, 2, "\n");
+      pos++;
+    }
+    while ((pos = content.find("\\\"", pos)) != std::string::npos) {
+      content.replace(pos, 2, "\"");
+      pos++;
+    }
+    while ((pos = content.find("\\\\", pos)) != std::string::npos) {
+      content.replace(pos, 2, "\\");
+      pos++;
     }
     return content;
+  }
+
+  // Check for error
+  if (result.find("\"error\"") != std::string::npos) {
+    return std::string("OpenAI Error: ") + result;
   }
 
   return result;

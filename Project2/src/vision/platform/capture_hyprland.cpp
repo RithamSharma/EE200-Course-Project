@@ -35,27 +35,34 @@ ImageResult HyprlandCapture::capture_via_grim() {
     return VisionError::CaptureFailed;
   }
 
-  // Load the image file
-  std::ifstream file(filepath, std::ios::binary | std::ios::ate);
-  if (!file) {
+  // Load the PNG file using file command
+  FILE* f = fopen(filepath.c_str(), "rb");
+  if (!f) {
     return VisionError::InvalidImage;
   }
 
-  auto size = file.tellg();
-  file.seekg(0);
+  // Get file size
+  fseek(f, 0, SEEK_END);
+  long size = ftell(f);
+  fseek(f, 0, SEEK_SET);
 
+  // Read PNG file
   std::vector<uint8_t> buffer(size);
-  if (!file.read(reinterpret_cast<char*>(buffer.data()), size)) {
+  size_t read = fread(buffer.data(), 1, size, f);
+  fclose(f);
+
+  if (read != static_cast<size_t>(size)) {
     return VisionError::InvalidImage;
   }
 
   // Clean up temp file
   std::remove(filepath.c_str());
 
+  // Store PNG data directly (will be parsed later)
   ImageData img;
   img.format = ImageFormat::PNG;
   img.data = std::move(buffer);
-  img.width = 1920; // Will be determined by PNG dimensions
+  img.width = 1920;
   img.height = 1080;
   img.channels = 4;
   img.timestamp = std::chrono::steady_clock::now();
