@@ -1,4 +1,7 @@
 #include <vision/screen_capture.h>
+#include <vision/platform/capture_hyprland.h>
+#include <vision/platform/capture_wayland.h>
+#include <vision/platform/capture_x11.h>
 #include <memory>
 #include <cstdlib>
 
@@ -8,25 +11,20 @@ std::unique_ptr<ScreenCapture> ScreenCapture::create_platform_capture() {
 #if defined(__linux__) || defined(__linux)
   if (const char* hyprland_sig = getenv("HYPRLAND_INSTANCE_SIGNATURE")) {
     (void)hyprland_sig;
-    // TODO: Create HyprlandCapture
-    return nullptr;
+    return std::make_unique<HyprlandCapture>();
   }
   if (const char* wayland_display = getenv("WAYLAND_DISPLAY")) {
     (void)wayland_display;
-    // TODO: Create WaylandCapture
-    return nullptr;
+    return std::make_unique<WaylandCapture>();
   }
   if (const char* display = getenv("DISPLAY")) {
     (void)display;
-    // TODO: Create X11Capture
-    return nullptr;
+    return std::make_unique<X11Capture>();
   }
 #elif defined(_WIN32) || defined(_WIN64)
-  // TODO: Create Win32Capture
-  return nullptr;
+  return std::make_unique<Win32Capture>();
 #elif defined(__APPLE__)
-  // TODO: Create MacCapture
-  return nullptr;
+  return std::make_unique<MacCapture>();
 #endif
   return nullptr;
 }
