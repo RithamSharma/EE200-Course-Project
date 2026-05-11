@@ -1,0 +1,830 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-05-11T07:54:21.995Z",
+  "source": "auto-postool",
+  "partial": false,
+  "phase": null,
+  "phase_name": null,
+  "phase_dir": null,
+  "plan": null,
+  "task": null,
+  "total_tasks": null,
+  "status": "auto-checkpoint",
+  "completed_tasks": [],
+  "remaining_tasks": [],
+  "blockers": [],
+  "human_actions_pending": [],
+  "decisions": [],
+  "uncommitted_files": [
+    {
+      "status": "??",
+      "path": ".BurpSuite/"
+    },
+    {
+      "status": "??",
+      "path": ".ICEauthority"
+    },
+    {
+      "status": "??",
+      "path": ".JWT4B/"
+    },
+    {
+      "status": "??",
+      "path": ".MATLABConnector/"
+    },
+    {
+      "status": "??",
+      "path": ".MathWorks/"
+    },
+    {
+      "status": "??",
+      "path": ".Transcribe!7"
+    },
+    {
+      "status": "??",
+      "path": ".Xresources"
+    },
+    {
+      "status": "??",
+      "path": ".agent/"
+    },
+    {
+      "status": "??",
+      "path": ".ahub/"
+    },
+    {
+      "status": "??",
+      "path": ".anaconda/"
+    },
+    {
+      "status": "??",
+      "path": ".android/"
+    },
+    {
+      "status": "??",
+      "path": ".antigravity/"
+    },
+    {
+      "status": "??",
+      "path": ".anydesk/"
+    },
+    {
+      "status": "??",
+      "path": ".atuin/"
+    },
+    {
+      "status": "??",
+      "path": ".bash-preexec.sh"
+    },
+    {
+      "status": "??",
+      "path": ".bash_history"
+    },
+    {
+      "status": "??",
+      "path": ".bash_logout"
+    },
+    {
+      "status": "??",
+      "path": ".bash_profile"
+    },
+    {
+      "status": "??",
+      "path": ".bashrc"
+    },
+    {
+      "status": "??",
+      "path": ".browseros/"
+    },
+    {
+      "status": "??",
+      "path": ".bun/"
+    },
+    {
+      "status": "??",
+      "path": ".cache/"
+    },
+    {
+      "status": "??",
+      "path": ".cargo/"
+    },
+    {
+      "status": "??",
+      "path": ".claude.json"
+    },
+    {
+      "status": "??",
+      "path": ".claude.json.backup"
+    },
+    {
+      "status": "??",
+      "path": ".conda/"
+    },
+    {
+      "status": "??",
+      "path": ".confi"
+    },
+    {
+      "status": "??",
+      "path": ".config/"
+    },
+    {
+      "status": "??",
+      "path": ".cph/"
+    },
+    {
+      "status": "??",
+      "path": ".cpimportant.kate-swp"
+    },
+    {
+      "status": "??",
+      "path": ".doppler/"
+    },
+    {
+      "status": "??",
+      "path": ".dotnet/"
+    },
+    {
+      "status": "??",
+      "path": ".easystroke/"
+    },
+    {
+      "status": "??",
+      "path": ".eclipse/"
+    },
+    {
+      "status": "??",
+      "path": ".feynman/"
+    },
+    {
+      "status": "??",
+      "path": ".firedragon/"
+    },
+    {
+      "status": "??",
+      "path": ".fltk/"
+    },
+    {
+      "status": "??",
+      "path": ".fluxbox/"
+    },
+    {
+      "status": "??",
+      "path": ".gemini/"
+    },
+    {
+      "status": "??",
+      "path": ".git-credentials"
+    },
+    {
+      "status": "??",
+      "path": ".gitconfig"
+    },
+    {
+      "status": "??",
+      "path": ".gitignore"
+    },
+    {
+      "status": "??",
+      "path": ".gnupg/"
+    },
+    {
+      "status": "??",
+      "path": ".gpac/"
+    },
+    {
+      "status": "??",
+      "path": ".gtk-bookmarks"
+    },
+    {
+      "status": "??",
+      "path": ".gtkrc-2.0"
+    },
+    {
+      "status": "??",
+      "path": ".icons/"
+    },
+    {
+      "status": "??",
+      "path": ".ipython/"
+    },
+    {
+      "status": "??",
+      "path": ".java/"
+    },
+    {
+      "status": "??",
+      "path": ".jd/"
+    },
+    {
+      "status": "??",
+      "path": ".keras/"
+    },
+    {
+      "status": "??",
+      "path": ".labuladong/"
+    },
+    {
+      "status": "??",
+      "path": ".lc/"
+    },
+    {
+      "status": "??",
+      "path": ".lcpr/"
+    },
+    {
+      "status": "??",
+      "path": ".links/"
+    },
+    {
+      "status": "??",
+      "path": ".llama/"
+    },
+    {
+      "status": "??",
+      "path": ".local/"
+    },
+    {
+      "status": "??",
+      "path": ".matlab/"
+    },
+    {
+      "status": "??",
+      "path": ".mozilla/"
+    },
+    {
+      "status": "??",
+      "path": ".mydotfiles/"
+    },
+    {
+      "status": "??",
+      "path": ".n8n/"
+    },
+    {
+      "status": "??",
+      "path": ".notion-enhancer"
+    },
+    {
+      "status": "??",
+      "path": ".notmuch-config"
+    },
+    {
+      "status": "??",
+      "path": ".novashell_todo"
+    },
+    {
+      "status": "??",
+      "path": ".npm-global/"
+    },
+    {
+      "status": "??",
+      "path": ".npm/"
+    },
+    {
+      "status": "??",
+      "path": ".npmrc"
+    },
+    {
+      "status": "??",
+      "path": ".nvm/"
+    },
+    {
+      "status": "??",
+      "path": ".ollama/"
+    },
+    {
+      "status": "??",
+      "path": ".opencode/"
+    },
+    {
+      "status": "??",
+      "path": ".p2/"
+    },
+    {
+      "status": "??",
+      "path": ".paper-refs.json"
+    },
+    {
+      "status": "??",
+      "path": ".parallel/"
+    },
+    {
+      "status": "??",
+      "path": ".pki/"
+    },
+    {
+      "status": "??",
+      "path": ".planning/"
+    },
+    {
+      "status": "??",
+      "path": ".profile"
+    },
+    {
+      "status": "??",
+      "path": ".pyenv/"
+    },
+    {
+      "status": "??",
+      "path": ".python-version"
+    },
+    {
+      "status": "??",
+      "path": ".python_history"
+    },
+    {
+      "status": "??",
+      "path": ".qemu/"
+    },
+    {
+      "status": "??",
+      "path": ".recon-ng/"
+    },
+    {
+      "status": "??",
+      "path": ".rustup/"
+    },
+    {
+      "status": "??",
+      "path": ".scspell/"
+    },
+    {
+      "status": "??",
+      "path": ".sonarlint/"
+    },
+    {
+      "status": "??",
+      "path": ".ssh/"
+    },
+    {
+      "status": "??",
+      "path": ".streamlit/"
+    },
+    {
+      "status": "??",
+      "path": ".subversion/"
+    },
+    {
+      "status": "??",
+      "path": ".task/"
+    },
+    {
+      "status": "??",
+      "path": ".taskrc"
+    },
+    {
+      "status": "??",
+      "path": ".textsnatcher.txt"
+    },
+    {
+      "status": "??",
+      "path": ".tmux.conf"
+    },
+    {
+      "status": "??",
+      "path": ".var/"
+    },
+    {
+      "status": "??",
+      "path": ".version"
+    },
+    {
+      "status": "??",
+      "path": ".vim/"
+    },
+    {
+      "status": "??",
+      "path": ".viminfo"
+    },
+    {
+      "status": "??",
+      "path": ".vimrc"
+    },
+    {
+      "status": "??",
+      "path": ".vimrc.plug"
+    },
+    {
+      "status": "??",
+      "path": ".vimrc.plut"
+    },
+    {
+      "status": "??",
+      "path": ".visualizers/"
+    },
+    {
+      "status": "??",
+      "path": ".vscode-oss/"
+    },
+    {
+      "status": "??",
+      "path": ".w3m/"
+    },
+    {
+      "status": "??",
+      "path": ".wget-hsts"
+    },
+    {
+      "status": "??",
+      "path": ".wine/"
+    },
+    {
+      "status": "??",
+      "path": ".yeqwqauh"
+    },
+    {
+      "status": "??",
+      "path": ".zen/"
+    },
+    {
+      "status": "??",
+      "path": ".zshrc"
+    },
+    {
+      "status": "??",
+      "path": "BrowserOS/"
+    },
+    {
+      "status": "??",
+      "path": "BurpSuiteCommunity/"
+    },
+    {
+      "status": "??",
+      "path": "DSA/"
+    },
+    {
+      "status": "??",
+      "path": "Desktop/"
+    },
+    {
+      "status": "??",
+      "path": "Downloads/"
+    },
+    {
+      "status": "??",
+      "path": "\"EE200 Summer project/.planning/\""
+    },
+    {
+      "status": "??",
+      "path": "\"EE200 Summer project/Basic_image_audio_tut.ipynb\""
+    },
+    {
+      "status": "??",
+      "path": "\"EE200 Summer project/EE200_Signal_Processing_Report.tex\""
+    },
+    {
+      "status": "??",
+      "path": "\"EE200 Summer project/EE200_practical_summer_2025.pdf\""
+    },
+    {
+      "status": "??",
+      "path": "\"EE200 Summer project/cat_gray.jpg\""
+    },
+    {
+      "status": "??",
+      "path": "\"EE200 Summer project/dog_gray.jpg\""
+    },
+    {
+      "status": "??",
+      "path": "\"EE200 Summer project/fused_images_output.png\""
+    },
+    {
+      "status": "??",
+      "path": "\"EE200 Summer project/report_images/\""
+    },
+    {
+      "status": "??",
+      "path": "\"EE200 Summer project/song_with_2piccolo.wav\""
+    },
+    {
+      "status": "??",
+      "path": "Endeegit/"
+    },
+    {
+      "status": "??",
+      "path": "\"Epic Games Launcher.desktop\""
+    },
+    {
+      "status": "??",
+      "path": "FreeRTOS/"
+    },
+    {
+      "status": "??",
+      "path": "GNUstep/"
+    },
+    {
+      "status": "??",
+      "path": "\"GTA San Andreas.desktop\""
+    },
+    {
+      "status": "??",
+      "path": "HyDE/"
+    },
+    {
+      "status": "??",
+      "path": "Insync/"
+    },
+    {
+      "status": "??",
+      "path": "KDSH/"
+    },
+    {
+      "status": "??",
+      "path": "\"Keil uVision5.desktop\""
+    },
+    {
+      "status": "??",
+      "path": "Library/"
+    },
+    {
+      "status": "??",
+      "path": "LowlevelProject/"
+    },
+    {
+      "status": "??",
+      "path": "\"MSE 4th Sem/\""
+    },
+    {
+      "status": "??",
+      "path": "MSe203notes.txt"
+    },
+    {
+      "status": "??",
+      "path": "Mse4thsem/"
+    },
+    {
+      "status": "??",
+      "path": "ObsFolder/"
+    },
+    {
+      "status": "??",
+      "path": "OpenCut/"
+    },
+    {
+      "status": "??",
+      "path": "Organized/"
+    },
+    {
+      "status": "??",
+      "path": "Project2/.planning/"
+    },
+    {
+      "status": "??",
+      "path": "Project2/LeetCodeBuddy/"
+    },
+    {
+      "status": "??",
+      "path": "Project2/README.md"
+    },
+    {
+      "status": "??",
+      "path": "Project2/build/"
+    },
+    {
+      "status": "??",
+      "path": "Project2/include/executor.h"
+    },
+    {
+      "status": "??",
+      "path": "Project2/include/parser.h"
+    },
+    {
+      "status": "??",
+      "path": "Project2/novashell"
+    },
+    {
+      "status": "??",
+      "path": "Project2/setup.sh"
+    },
+    {
+      "status": "??",
+      "path": "Project2/src/executor.cpp"
+    },
+    {
+      "status": "??",
+      "path": "Project2/src/main.cpp"
+    },
+    {
+      "status": "??",
+      "path": "Project2/src/parser.cpp"
+    },
+    {
+      "status": "??",
+      "path": "Repositories/"
+    },
+    {
+      "status": "??",
+      "path": "VectorDBBench/"
+    },
+    {
+      "status": "??",
+      "path": "Videos/"
+    },
+    {
+      "status": "??",
+      "path": "Vivaldi.desktop"
+    },
+    {
+      "status": "??",
+      "path": "ai_prompts.yml"
+    },
+    {
+      "status": "??",
+      "path": "antigravity-skills/"
+    },
+    {
+      "status": "??",
+      "path": "autologin-iitk/"
+    },
+    {
+      "status": "??",
+      "path": "camtest.py"
+    },
+    {
+      "status": "??",
+      "path": "claude-code/"
+    },
+    {
+      "status": "??",
+      "path": "claude.txt"
+    },
+    {
+      "status": "??",
+      "path": "cp/"
+    },
+    {
+      "status": "??",
+      "path": "dev.warp.Warp.desktop"
+    },
+    {
+      "status": "??",
+      "path": "dora/"
+    },
+    {
+      "status": "??",
+      "path": "dotfiles-2.0/"
+    },
+    {
+      "status": "??",
+      "path": "dotfiles/"
+    },
+    {
+      "status": "??",
+      "path": "eclipse-workspace/"
+    },
+    {
+      "status": "??",
+      "path": "feynman/"
+    },
+    {
+      "status": "??",
+      "path": "first-contributions/"
+    },
+    {
+      "status": "??",
+      "path": "free-claude-code/"
+    },
+    {
+      "status": "??",
+      "path": "free-llm-api-resources/"
+    },
+    {
+      "status": "??",
+      "path": "gesture_control.py"
+    },
+    {
+      "status": "??",
+      "path": "go/"
+    },
+    {
+      "status": "??",
+      "path": "handenv/"
+    },
+    {
+      "status": "??",
+      "path": "handpro/"
+    },
+    {
+      "status": "??",
+      "path": "hi.py"
+    },
+    {
+      "status": "??",
+      "path": "ii-original-dots-backup/"
+    },
+    {
+      "status": "??",
+      "path": "images/"
+    },
+    {
+      "status": "??",
+      "path": "input-wacom/"
+    },
+    {
+      "status": "??",
+      "path": "jexiftoolgui_data/"
+    },
+    {
+      "status": "??",
+      "path": "kDrive/"
+    },
+    {
+      "status": "??",
+      "path": "key.txt"
+    },
+    {
+      "status": "??",
+      "path": "key.txt.pub"
+    },
+    {
+      "status": "??",
+      "path": "krita-4088-document_0-autosave.kra"
+    },
+    {
+      "status": "??",
+      "path": "learnEmbedded/"
+    },
+    {
+      "status": "??",
+      "path": "linux/"
+    },
+    {
+      "status": "??",
+      "path": "ml4w-dotfiles-installer/"
+    },
+    {
+      "status": "??",
+      "path": "mse203notes.txt"
+    },
+    {
+      "status": "??",
+      "path": "my-project/"
+    },
+    {
+      "status": "??",
+      "path": "notion-app-electron/"
+    },
+    {
+      "status": "??",
+      "path": "openclaude/"
+    },
+    {
+      "status": "??",
+      "path": "opencode.txt"
+    },
+    {
+      "status": "??",
+      "path": "pavucontrol/"
+    },
+    {
+      "status": "??",
+      "path": "pc-bios/"
+    },
+    {
+      "status": "??",
+      "path": "portfolio-website/"
+    },
+    {
+      "status": "??",
+      "path": "qdrantlearn/"
+    },
+    {
+      "status": "??",
+      "path": "robin/"
+    },
+    {
+      "status": "??",
+      "path": "ros2/"
+    },
+    {
+      "status": "??",
+      "path": "samsungbackup/"
+    },
+    {
+      "status": "??",
+      "path": "setup-mousekeys.sh"
+    },
+    {
+      "status": "??",
+      "path": "supmario/"
+    },
+    {
+      "status": "??",
+      "path": "system-design-primer/"
+    },
+    {
+      "status": "??",
+      "path": "tpm/"
+    },
+    {
+      "status": "??",
+      "path": "walker/"
+    },
+    {
+      "status": "??",
+      "path": "yay/"
+    }
+  ],
+  "next_action": null,
+  "context_notes": "Recent commits:\n258b4a3 feat: save restored audio files for playback\n0c57a1b fix: reorder cells for correct execution order\n6b3e078 feat: add all missing requirements from assignment\nbe31bae feat: update filtering with multiple cutoffs for visible effects\n1fbfc2f docs: add EE200 implementation plan with detailed tasks"
+}
